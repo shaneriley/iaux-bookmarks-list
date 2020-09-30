@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - node
+
+notifications:
+  slack:
+    secure: y4IMmvEu1qC6SFr5X35guUJK2xRKSfJ7dSa1NmGxyMMq0i94xhM167eYp2zXspsMxfjBHNO1h8Fk/EN/aE8RS0K8wazcbWyCHr3CUACVFoXpgecJAMhDVOq7elcFaOB+sihnOxTBCJJq1o9zsfVDlHPr+RSqlCEG1gSTfc2cFIdle5rDC/ZPQZYqKr7jEh8svJcKtfybaUMmeZSkoH0yAVEG+rn9gtSGiZJm3SeofPch5dZ8+lsKffYAcekCSsRpwj3qRVQdv6wPzP3nM+CoE70DVEYWOphBATyjiUkgLPyaVXV0fT0DaZUrFyYqkvFR8Fnt1fN7fdZgsDoJ/BjgZ/7Xnmm4QQ0KVnFkFbDvQJhvK4FmNs5G9stNazV/ZU1gcQDF0x5NqypQWASZ+6cUr+dIvlkTNoyDfpgEszJdopz7JGZHrP4X5s6iAgv+dTfK8oITUCuNVbkRhnLXEQJvazVtLDavb4rost1XjfOJbr8MD9gfIFShzunBBjHs5bAPSm3U+GPirVJ6+UVWRdU1FZQVFXxQ+seOMh12zH5Kh/NJjQRT0c3quguFKonP7AcZRSJF0DBzwumvVa7QwrP1c9GcSOQBfK5sNC0rHQL44I2LTB9hU8SNdWE7z63wsw0awXq4bKzmkIcMPjxH4728/nM3TOhSW2tzcCuX3uRlK3w=
+    exclude:
+      if: (fork = true)
+
+install:
+  - npm install
+  - npm install -g codecov
+
+script:
+  - npm run test
+
+after_success:
+  - codecov
